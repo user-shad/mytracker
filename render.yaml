@@ -3,11 +3,11 @@ services:
     name: mytracker
     runtime: node
     plan: free
+    repo: https://github.com/user-shad/mytracker
+    branch: master
     buildCommand: npm install && npm run build
     startCommand: npm start
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
-        value: 22
-      - key: APP_ORIGIN
-        sync: false
+        value: "22"

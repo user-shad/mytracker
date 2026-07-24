@@ -1,6 +1,7 @@
 import { useLang } from '../context/LangContext'
 import { t } from '../i18n/translations'
 import { LanguageToggle } from '../components/LanguageToggle'
+import { DemoLoginsCard } from '../components/DemoLoginsCard'
 import { BrandMark, Button, Card } from '../components/ui'
 
 export function LandingPage({
@@ -38,6 +39,7 @@ export function LandingPage({
       </header>
 
       <section className="hero">
+        <DemoLoginsCard />
         <div className="hero-copy">
           <p className="eyebrow">{t(lang, 'websiteEyebrow')}</p>
           <h1>{t(lang, 'tagline')}</h1>

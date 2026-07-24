@@ -9,6 +9,7 @@
     "dev:all": "concurrently \"npm run dev:server\" \"npm run dev\"",
     "build": "tsc -b && vite build",
     "start": "tsx server/index.ts",
+    "seed:demo": "tsx server/seedDemo.ts",
     "website": "npm run build && npm start",
     "lint": "oxlint",
     "preview": "vite preview"
@@ -19,7 +20,8 @@
     "express": "^4.21.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
-    "stripe": "^18.4.0"
+    "stripe": "^18.4.0",
+    "tsx": "^4.20.5"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
@@ -30,7 +32,6 @@
     "@vitejs/plugin-react": "^6.0.3",
     "concurrently": "^9.2.1",
     "oxlint": "^1.71.0",
-    "tsx": "^4.20.5",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
   }
