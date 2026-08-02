@@ -21,7 +21,7 @@ export function buildTicketAlertEmail(input: {
       `Subject: ${input.ticket.title}`,
       `Details: ${input.ticket.description}`,
       '',
-      'Log in to MyTracker to review and notify the contractor.',
+      'Log in to MlihRent to review and notify the contractor.',
     ].join('\n'),
   }
 }

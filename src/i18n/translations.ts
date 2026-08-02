@@ -1,7 +1,7 @@
 import type { Lang } from '../context/LangContext'
 
 const en = {
-  brand: 'MyTracker',
+  brand: 'MlihRent',
   tagline: 'Track buildings, rent, and maintenance — all in one place.',
   loginSubtitle: 'Choose your role and sign in.',
   roleAdmin: 'Admin',
@@ -132,7 +132,7 @@ const en = {
   websiteEyebrow: 'Building management SaaS',
   websiteLead:
     'Register your company, manage buildings and rent, collect payments, and handle maintenance — with separate portals for admins, staff, and residents.',
-  websiteFooter: '© 2026 MyTracker. Secure multi-tenant building management.',
+  websiteFooter: '© 2026 MlihRent. Secure multi-tenant building management.',
   howItWorks: 'How it works',
   step1Title: 'Register your company',
   step1Desc: 'Submit your details. A platform technician reviews and approves your account.',
@@ -185,7 +185,7 @@ const en = {
   staffLabel: 'Staff',
   systemLabel: 'System',
   youLabel: 'You',
-  chatWithAssistant: 'Chat with the MyTracker assistant. Ask about rent, your apartment, or request a staff member.',
+  chatWithAssistant: 'Chat with the MlihRent assistant. Ask about rent, your apartment, or request a staff member.',
   chatWithStaff: 'You are connected with support staff.',
   noChats: 'No support chats yet.',
   selectChat: 'Select a chat from the queue.',
@@ -285,7 +285,7 @@ const en = {
 } as const
 
 const ar: Record<keyof typeof en, string> = {
-  brand: 'MyTracker',
+  brand: 'MlihRent',
   tagline: 'تتبع المباني والإيجار والصيانة — في مكان واحد.',
   loginSubtitle: 'اختر دورك وسجّل الدخول.',
   roleAdmin: 'مدير',
@@ -416,7 +416,7 @@ const ar: Record<keyof typeof en, string> = {
   websiteEyebrow: 'إدارة المباني',
   websiteLead:
     'سجّل شركتك، أدر المباني والإيجار، اجمع المدفوعات، وتابع الصيانة — مع بوابات منفصلة للمديرين والموظفين والسكان.',
-  websiteFooter: '© 2026 MyTracker. إدارة مبانٍ متعددة المستأجرين بأمان.',
+  websiteFooter: '© 2026 MlihRent. إدارة مبانٍ متعددة المستأجرين بأمان.',
   howItWorks: 'كيف يعمل',
   step1Title: 'سجّل شركتك',
   step1Desc: 'أرسل بياناتك. يراجع الفني طلبك ويوافق على حسابك.',
@@ -469,7 +469,7 @@ const ar: Record<keyof typeof en, string> = {
   staffLabel: 'الموظف',
   systemLabel: 'النظام',
   youLabel: 'أنت',
-  chatWithAssistant: 'تحدث مع مساعد MyTracker. اسأل عن الإيجار أو شقتك، أو اطلب موظفاً.',
+  chatWithAssistant: 'تحدث مع مساعد MlihRent. اسأل عن الإيجار أو شقتك، أو اطلب موظفاً.',
   chatWithStaff: 'أنت متصل بموظف الدعم.',
   noChats: 'لا توجد محادثات دعم بعد.',
   selectChat: 'اختر محادثة من القائمة.',

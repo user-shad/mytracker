@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: mytracker
+    name: mlihrent
     runtime: node
     plan: free
     repo: https://github.com/user-shad/mytracker

@@ -355,7 +355,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
       }
 
       next = queueEmailAndDispatch(next, {
-        to: 'technician@mytracker.app',
+        to: 'technician@mlihrent.app',
         subject: `New company registration: ${registration.companyName}`,
         body: `A new company requested access.\n\nCompany: ${registration.companyName}\nAdmin: ${registration.adminName}\nEmail: ${registration.adminEmail}\nPhone: ${registration.phone ?? '—'}\n\nReview in the technician panel.`,
         kind: 'technician_alert',
@@ -401,8 +401,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
       next = queueEmailAndDispatch(next, {
         to: reg.adminEmail,
-        subject: 'MyTracker — your company account is approved',
-        body: `Welcome to MyTracker!\n\nYour company "${reg.companyName}" has been approved.\n\nLogin email: ${reg.adminEmail}\nTemporary password: ${password}\n\nPlease log in and change your password in your profile.`,
+        subject: 'MlihRent — your company account is approved',
+        body: `Welcome to MlihRent!\n\nYour company "${reg.companyName}" has been approved.\n\nLogin email: ${reg.adminEmail}\nTemporary password: ${password}\n\nPlease log in and change your password in your profile.`,
         kind: 'approval',
       })
 
@@ -426,8 +426,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
       next = queueEmailAndDispatch(next, {
         to: reg.adminEmail,
-        subject: 'MyTracker — registration update',
-        body: `Thank you for your interest in MyTracker.\n\nYour registration for "${reg.companyName}" was not approved at this time. Contact support if you have questions.`,
+        subject: 'MlihRent — registration update',
+        body: `Thank you for your interest in MlihRent.\n\nYour registration for "${reg.companyName}" was not approved at this time. Contact support if you have questions.`,
         kind: 'rejection',
       })
 
@@ -606,7 +606,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
 
       next = queueEmailAndDispatch(next, {
         to: email,
-        subject: 'MyTracker — your resident account',
+        subject: 'MlihRent — your resident account',
         body: `Welcome!\n\nYour apartment account is ready.\n\nLogin email: ${email}\nTemporary password: ${password}\n\nLease: ${input.leaseStart} to ${input.leaseEnd}\nFull lease amount: ${input.leaseAmount} AED\n\nYou can change your password after logging in. Other profile details are managed by your building admin.`,
         kind: 'approval',
       })
@@ -718,8 +718,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
       let next: AppData = { ...data, users: [...data.users, staff] }
       next = queueEmailAndDispatch(next, {
         to: email,
-        subject: 'MyTracker — your staff account',
-        body: `Welcome to MyTracker support staff.\n\nLogin email: ${email}\nTemporary password: ${password}\n\nUse Staff login on the website. You can change your password after logging in.`,
+        subject: 'MlihRent — your staff account',
+        body: `Welcome to MlihRent support staff.\n\nLogin email: ${email}\nTemporary password: ${password}\n\nUse Staff login on the website. You can change your password after logging in.`,
         kind: 'staff_welcome',
       })
 
@@ -837,8 +837,8 @@ export function DataProvider({ children }: { children: ReactNode }) {
         senderRole: 'ai',
         body:
           lang === 'ar'
-            ? 'مرحباً! أنا مساعد MyTracker. اسأل عن الإيجار أو شقتك، أو اطلب التحدث مع موظف.'
-            : 'Hello! I am the MyTracker assistant. Ask about rent or your apartment, or request a staff member.',
+            ? 'مرحباً! أنا مساعد MlihRent. اسأل عن الإيجار أو شقتك، أو اطلب التحدث مع موظف.'
+            : 'Hello! I am the MlihRent assistant. Ask about rent or your apartment, or request a staff member.',
         createdAt: nowIso(),
       }
 

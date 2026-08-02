@@ -66,7 +66,7 @@ export function buildTicketWhatsAppMessage(
   const category = ticketCategoryLabel(ticket.category, lang)
   if (lang === 'ar') {
     return [
-      'طلب صيانة — MyTracker',
+      'طلب صيانة — MlihRent',
       `التذكرة: ${ticket.reference}`,
       `المبنى: ${building.name}`,
       `الوحدة: ${apartment.label}`,
@@ -76,7 +76,7 @@ export function buildTicketWhatsAppMessage(
     ].join('\n')
   }
   return [
-    'MyTracker maintenance request',
+    'MlihRent maintenance request',
     `Ticket: ${ticket.reference}`,
     `Building: ${building.name}`,
     `Unit: ${apartment.label}`,

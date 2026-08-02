@@ -13,6 +13,8 @@ dist-ssr
 *.local
 .env
 server/data/store.json
+.render-cli/
+render-cli.zip
 
 # Editor directories and files
 .vscode/*

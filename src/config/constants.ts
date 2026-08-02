@@ -1,7 +1,7 @@
 export const PLATFORM = {
-  name: 'MyTracker',
-  technicianEmail: 'technician@mytracker.app',
+  name: 'MlihRent',
+  technicianEmail: 'technician@mlihrent.app',
   technicianPassword: 'TechDemo2026!',
   technicianName: 'Platform Technician',
-  storageKey: 'mytracker_v1',
+  storageKey: 'mlihrent_v1',
 } as const

@@ -1,9 +1,9 @@
 import type { Lang } from '../context/LangContext'
 
 const OFF_TOPIC_EN =
-  'I can only help with MyTracker topics: rent status, payments, your apartment, maintenance tickets, and building support.'
+  'I can only help with MlihRent topics: rent status, payments, your apartment, maintenance tickets, and building support.'
 const OFF_TOPIC_AR =
-  'يمكنني المساعدة فقط في مواضيع MyTracker: الإيجار، الدفع، شقتك، الصيانة، ودعم المبنى.'
+  'يمكنني المساعدة فقط في مواضيع MlihRent: الإيجار، الدفع، شقتك، الصيانة، ودعم المبنى.'
 
 export function assistantReply(message: string, lang: Lang): { body: string; escalate: boolean } {
   const text = message.trim().toLowerCase()
@@ -72,8 +72,8 @@ export function assistantReply(message: string, lang: Lang): { body: string; esc
     return {
       body:
         lang === 'ar'
-          ? 'مرحباً! أنا مساعد MyTracker. كيف يمكنني مساعدتك اليوم؟'
-          : 'Hello! I am the MyTracker assistant. How can I help you today?',
+          ? 'مرحباً! أنا مساعد MlihRent. كيف يمكنني مساعدتك اليوم؟'
+          : 'Hello! I am the MlihRent assistant. How can I help you today?',
       escalate: false,
     }
   }

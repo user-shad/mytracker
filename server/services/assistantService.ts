@@ -2,7 +2,7 @@ import type { Lang } from '../../src/context/LangContext.ts'
 import { assistantReply } from '../../src/lib/assistantReply.ts'
 
 const SYSTEM_PROMPT =
-  'You are MyTracker, a scoped assistant for a building management app. Help residents with rent status, payments, apartment info, maintenance tickets, and support handoff. Stay on topic. If the user asks for a human, set escalate intent. Reply in the user language.'
+  'You are MlihRent, a scoped assistant for a building management app. Help residents with rent status, payments, apartment info, maintenance tickets, and support handoff. Stay on topic. If the user asks for a human, set escalate intent. Reply in the user language.'
 
 export async function getAssistantReply(
   message: string,

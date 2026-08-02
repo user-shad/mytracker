@@ -10,7 +10,7 @@ interface LangContextValue {
 
 const LangContext = createContext<LangContextValue | null>(null)
 
-const STORAGE_KEY = 'mytracker_lang'
+const STORAGE_KEY = 'mlihrent_lang'
 
 export function LangProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {

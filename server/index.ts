@@ -144,9 +144,9 @@ app.listen(port, '0.0.0.0', () => {
   const config = getConfig()
   const origin = getAppOrigin()
   if (isWebsite) {
-    console.log(`MyTracker website live at ${origin}`)
+    console.log(`MlihRent website live at ${origin}`)
   } else {
-    console.log(`MyTracker API listening on http://localhost:${port}`)
+    console.log(`MlihRent API listening on http://localhost:${port}`)
   }
   console.log(
     `Services: email=${config.emailEnabled ? 'live' : 'simulated'}, gpt=${config.gptEnabled ? 'live' : 'rules'}, stripe=${config.stripeEnabled ? 'live' : 'simulated'}`,

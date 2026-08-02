@@ -11,7 +11,7 @@ export async function dispatchEmail(
   }
 
   const apiKey = process.env.RESEND_API_KEY
-  const from = process.env.EMAIL_FROM ?? 'MyTracker <onboarding@resend.dev>'
+  const from = process.env.EMAIL_FROM ?? 'MlihRent <onboarding@resend.dev>'
 
   if (!apiKey) {
     return { sent: false, simulated: true, email: entry }

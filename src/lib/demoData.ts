@@ -6,12 +6,12 @@ import { nowIso } from './utils'
 export const DEMO_COMPANY_ID = 'demo_alnoor_co'
 
 export const DEMO_LOGINS = {
-  admin: { email: 'admin@demo.mytracker', password: 'DemoAdmin2026!', name: 'Sara Al Mazrouei' },
-  staff: { email: 'staff@demo.mytracker', password: 'DemoStaff2026!', name: 'Fatima Al Ketbi' },
-  staff2: { email: 'support@demo.mytracker', password: 'DemoStaff2026!', name: 'Omar Al Mansoori' },
-  resident: { email: 'resident@demo.mytracker', password: 'DemoResident2026!', name: 'Ahmed Ali' },
-  resident2: { email: 'mariam@demo.mytracker', password: 'DemoResident2026!', name: 'Mariam Hassan' },
-  resident3: { email: 'khalid@demo.mytracker', password: 'DemoResident2026!', name: 'Khalid Omar' },
+  admin: { email: 'admin@demo.mlihrent', password: 'DemoAdmin2026!', name: 'Sara Al Mazrouei' },
+  staff: { email: 'staff@demo.mlihrent', password: 'DemoStaff2026!', name: 'Fatima Al Ketbi' },
+  staff2: { email: 'support@demo.mlihrent', password: 'DemoStaff2026!', name: 'Omar Al Mansoori' },
+  resident: { email: 'resident@demo.mlihrent', password: 'DemoResident2026!', name: 'Ahmed Ali' },
+  resident2: { email: 'mariam@demo.mlihrent', password: 'DemoResident2026!', name: 'Mariam Hassan' },
+  resident3: { email: 'khalid@demo.mlihrent', password: 'DemoResident2026!', name: 'Khalid Omar' },
 } as const
 
 const IDS = {
@@ -529,7 +529,7 @@ export function buildDemoData(existing: AppData): AppData {
   const simulatedEmails = [
     {
       id: 'demo_mail_1',
-      to: 'technician@mytracker.app',
+      to: 'technician@mlihrent.app',
       subject: 'New company registration: Gulf Heights LLC',
       body: 'A new company requested access.\n\nCompany: Gulf Heights LLC\nAdmin: Yousef Al Nahyan\nEmail: yousef@gulfheights.ae',
       kind: 'technician_alert' as const,
@@ -538,15 +538,15 @@ export function buildDemoData(existing: AppData): AppData {
     {
       id: 'demo_mail_2',
       to: DEMO_LOGINS.admin.email,
-      subject: 'MyTracker — welcome to Al Noor Property Management',
-      body: `Welcome to MyTracker!\n\nYour demo admin account is ready.\n\nLogin: ${DEMO_LOGINS.admin.email}\nPassword: ${DEMO_LOGINS.admin.password}`,
+      subject: 'MlihRent — welcome to Al Noor Property Management',
+      body: `Welcome to MlihRent!\n\nYour demo admin account is ready.\n\nLogin: ${DEMO_LOGINS.admin.email}\nPassword: ${DEMO_LOGINS.admin.password}`,
       kind: 'approval' as const,
       createdAt: created,
     },
     {
       id: 'demo_mail_3',
       to: DEMO_LOGINS.staff.email,
-      subject: 'MyTracker — staff account created',
+      subject: 'MlihRent — staff account created',
       body: `Your staff account for Al Noor Property Management is ready.\n\nLogin: ${DEMO_LOGINS.staff.email}\nPassword: ${DEMO_LOGINS.staff.password}`,
       kind: 'staff_welcome' as const,
       createdAt: created,
@@ -584,13 +584,13 @@ export function demoLoginSummary(): string {
   return [
     'Demo company: Al Noor Property Management',
     '',
-    'Admin:    admin@demo.mytracker / DemoAdmin2026!',
-    'Staff:    staff@demo.mytracker / DemoStaff2026!',
-    'Staff 2:  support@demo.mytracker / DemoStaff2026!',
-    'Resident: resident@demo.mytracker / DemoResident2026! (Tower A / A1)',
-    'Resident: mariam@demo.mytracker / DemoResident2026! (Tower A / A2)',
-    'Resident: khalid@demo.mytracker / DemoResident2026! (Garden / B1)',
+    'Admin:    admin@demo.mlihrent / DemoAdmin2026!',
+    'Staff:    staff@demo.mlihrent / DemoStaff2026!',
+    'Staff 2:  support@demo.mlihrent / DemoStaff2026!',
+    'Resident: resident@demo.mlihrent / DemoResident2026! (Tower A / A1)',
+    'Resident: mariam@demo.mlihrent / DemoResident2026! (Tower A / A2)',
+    'Resident: khalid@demo.mlihrent / DemoResident2026! (Garden / B1)',
     '',
-    'Technician: technician@mytracker.app / TechDemo2026!',
+    'Technician: technician@mlihrent.app / TechDemo2026!',
   ].join('\n')
 }
