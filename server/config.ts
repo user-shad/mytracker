@@ -16,6 +16,10 @@ export function getPort(): number {
   return Number(process.env.PORT ?? 3001)
 }
 
+export function getTechnicianSeedPassword(): string | undefined {
+  return process.env.TECHNICIAN_PASSWORD || undefined
+}
+
 export function getAppOrigin(): string {
   if (process.env.APP_ORIGIN) return process.env.APP_ORIGIN.replace(/\/$/, '')
   if (process.env.RENDER_EXTERNAL_URL) return process.env.RENDER_EXTERNAL_URL.replace(/\/$/, '')

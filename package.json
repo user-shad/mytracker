@@ -9,7 +9,6 @@
     "dev:all": "concurrently \"npm run dev:server\" \"npm run dev\"",
     "build": "tsc -b && vite build",
     "start": "tsx server/index.ts",
-    "seed:demo": "tsx server/seedDemo.ts",
     "website": "npm run build && npm start",
     "lint": "oxlint",
     "preview": "vite preview"

@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import type { AppData } from '../src/types/index.ts'
 import { bootstrapFromRaw, finalizeData } from '../src/lib/dataCore.ts'
+import { getTechnicianSeedPassword } from './config.ts'
 import {
   initDatabase,
   isDatabaseEnabled,
@@ -25,18 +26,18 @@ function ensureStoreDir() {
 function loadFromJson(): AppData {
   ensureStoreDir()
   if (!existsSync(storePath)) {
-    const data = bootstrapFromRaw(null)
+    const data = bootstrapFromRaw(null, getTechnicianSeedPassword())
     writeFileSync(storePath, JSON.stringify(data, null, 2), 'utf8')
     return data
   }
 
   try {
     const raw = JSON.parse(readFileSync(storePath, 'utf8')) as Partial<AppData>
-    const data = bootstrapFromRaw(raw)
+    const data = bootstrapFromRaw(raw, getTechnicianSeedPassword())
     writeFileSync(storePath, JSON.stringify(data, null, 2), 'utf8')
     return data
   } catch {
-    const data = bootstrapFromRaw(null)
+    const data = bootstrapFromRaw(null, getTechnicianSeedPassword())
     writeFileSync(storePath, JSON.stringify(data, null, 2), 'utf8')
     return data
   }
@@ -71,8 +72,11 @@ export async function initStore(): Promise<AppData> {
     await initDatabase()
     const fromDatabase = await loadFromDatabase()
     if (fromDatabase) {
-      cache = migratePasswords(fromDatabase)
-      if (cache !== fromDatabase) queuePersist(cache)
+      const bootstrapped = bootstrapFromRaw(fromDatabase, getTechnicianSeedPassword())
+      cache = migratePasswords(bootstrapped)
+      if (JSON.stringify(cache) !== JSON.stringify(fromDatabase)) {
+        queuePersist(cache)
+      }
       return cache
     }
 

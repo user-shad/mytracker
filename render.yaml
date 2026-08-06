@@ -33,3 +33,5 @@ services:
         sync: false
       - key: STRIPE_WEBHOOK_SECRET
         sync: false
+      - key: TECHNICIAN_PASSWORD
+        sync: false

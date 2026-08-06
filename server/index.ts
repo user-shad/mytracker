@@ -16,8 +16,6 @@ import {
   handleStripeWebhook,
   markInvoicePaidSimulated,
 } from './services/stripeService.ts'
-import { buildDemoData, demoLoginSummary, isDemoLoaded } from '../src/lib/demoData.ts'
-
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const distPath = join(__dirname, '..', 'dist')
 const isWebsite = existsSync(distPath)
@@ -123,26 +121,6 @@ app.post('/api/payments/confirm', async (req, res) => {
   res.json(result)
 })
 
-app.post('/api/seed/demo', (_req, res) => {
-  const data = saveStore(buildDemoData(loadStore()))
-  res.json({
-    ok: true,
-    message: 'Demo data loaded',
-    company: 'Al Noor Property Management',
-    logins: demoLoginSummary(),
-    stats: {
-      companies: data.companies.length,
-      buildings: data.buildings.length,
-      users: data.users.length,
-      apartments: data.apartments.length,
-      invoices: data.invoices.length,
-      tickets: data.maintenanceTickets.length,
-      pendingRegistrations: data.pendingRegistrations.filter((reg) => reg.status === 'pending')
-        .length,
-    },
-  })
-})
-
 if (isWebsite) {
   app.use(express.static(distPath, { index: false, maxAge: '1d' }))
   app.get('*', (req, res, next) => {
@@ -155,11 +133,7 @@ if (isWebsite) {
 }
 
 async function start() {
-  let bootData = await initStore()
-  if (!isDemoLoaded(bootData)) {
-    bootData = saveStore(buildDemoData(bootData))
-    console.log('Loaded demo data for Al Noor Property Management')
-  }
+  await initStore()
 
   const port = getPort()
   app.listen(port, '0.0.0.0', () => {

@@ -1,6 +1,6 @@
 import { isCloudEnabled, PLATFORM } from '../config/platform'
 import type { AppData } from '../types'
-import { bootstrapFromRaw, emptyData, finalizeData, seedTechnician } from './dataCore'
+import { bootstrapFromRaw, finalizeData } from './dataCore'
 import { fetchCloudData, saveCloudData } from './cloudApi'
 
 export function loadDataLocal(): AppData {
@@ -43,12 +43,4 @@ export async function saveData(data: AppData): Promise<void> {
   if (isCloudEnabled()) {
     await saveCloudData(data)
   }
-}
-
-export function resetDemoData(): AppData {
-  const data = emptyData()
-  data.users.push(seedTechnician())
-  data.initialized = true
-  saveDataLocal(data)
-  return data
 }

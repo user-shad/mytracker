@@ -1,5 +1,4 @@
 import { useState, type FormEvent } from 'react'
-import { PLATFORM } from '../config/platform'
 import { useAuth } from '../context/AuthContext'
 import { useLang } from '../context/LangContext'
 import { t } from '../i18n/translations'
@@ -36,9 +35,6 @@ export function TechnicianLoginPage({
       actions={<LanguageToggle />}
     >
       <Card className="form-card">
-        <Flash tone="info">
-          {t(lang, 'technicianDemoHint')}: {PLATFORM.technicianEmail} / {PLATFORM.technicianPassword}
-        </Flash>
         <form className="stack-form" onSubmit={handleSubmit}>
           {error ? <Flash tone="bad">{error}</Flash> : null}
           <Field label={t(lang, 'email')}>
