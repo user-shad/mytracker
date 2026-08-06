@@ -1,9 +1,14 @@
+import { isDatabaseEnabled } from './db.ts'
+
 export function getConfig() {
   return {
-    version: '4.0.0',
+    version: '4.1.0',
+    databaseEnabled: isDatabaseEnabled(),
+    storeBackend: isDatabaseEnabled() ? 'postgres' : 'json',
     emailEnabled: Boolean(process.env.RESEND_API_KEY),
     gptEnabled: Boolean(process.env.OPENAI_API_KEY),
     stripeEnabled: Boolean(process.env.STRIPE_SECRET_KEY),
+    stripeWebhookEnabled: Boolean(process.env.STRIPE_WEBHOOK_SECRET),
   }
 }
 

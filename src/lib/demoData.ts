@@ -1,6 +1,7 @@
 import type { AppData } from '../types'
 import { invoiceReference } from './invoices'
 import { currentRentPeriod } from './rentPeriod'
+import { hashPassword } from './password'
 import { nowIso } from './utils'
 
 export const DEMO_COMPANY_ID = 'demo_alnoor_co'
@@ -97,7 +98,7 @@ export function buildDemoData(existing: AppData): AppData {
     companyId: IDS.company,
     role: 'admin' as const,
     email: DEMO_LOGINS.admin.email,
-    password: DEMO_LOGINS.admin.password,
+    password: hashPassword(DEMO_LOGINS.admin.password),
     name: DEMO_LOGINS.admin.name,
     phone: '+971 50 111 2233',
     createdAt: created,
@@ -108,7 +109,7 @@ export function buildDemoData(existing: AppData): AppData {
     companyId: IDS.company,
     role: 'staff' as const,
     email: DEMO_LOGINS.staff.email,
-    password: DEMO_LOGINS.staff.password,
+    password: hashPassword(DEMO_LOGINS.staff.password),
     name: DEMO_LOGINS.staff.name,
     phone: '+971 50 222 3344',
     createdAt: created,
@@ -119,7 +120,7 @@ export function buildDemoData(existing: AppData): AppData {
     companyId: IDS.company,
     role: 'staff' as const,
     email: DEMO_LOGINS.staff2.email,
-    password: DEMO_LOGINS.staff2.password,
+    password: hashPassword(DEMO_LOGINS.staff2.password),
     name: DEMO_LOGINS.staff2.name,
     phone: '+971 50 333 4455',
     createdAt: created,
@@ -130,7 +131,7 @@ export function buildDemoData(existing: AppData): AppData {
     companyId: IDS.company,
     role: 'resident' as const,
     email: DEMO_LOGINS.resident.email,
-    password: DEMO_LOGINS.resident.password,
+    password: hashPassword(DEMO_LOGINS.resident.password),
     name: DEMO_LOGINS.resident.name,
     phone: '+971 50 444 5566',
     createdAt: created,
@@ -141,7 +142,7 @@ export function buildDemoData(existing: AppData): AppData {
     companyId: IDS.company,
     role: 'resident' as const,
     email: DEMO_LOGINS.resident2.email,
-    password: DEMO_LOGINS.resident2.password,
+    password: hashPassword(DEMO_LOGINS.resident2.password),
     name: DEMO_LOGINS.resident2.name,
     phone: '+971 50 555 6677',
     createdAt: created,
@@ -152,7 +153,7 @@ export function buildDemoData(existing: AppData): AppData {
     companyId: IDS.company,
     role: 'resident' as const,
     email: DEMO_LOGINS.resident3.email,
-    password: DEMO_LOGINS.resident3.password,
+    password: hashPassword(DEMO_LOGINS.resident3.password),
     name: DEMO_LOGINS.resident3.name,
     phone: '+971 50 666 7788',
     createdAt: created,

@@ -1,4 +1,5 @@
 import { PLATFORM } from '../config/constants'
+import { hashPassword } from './password'
 import type { AppData, User } from '../types'
 import { migrateRentRecordsToInvoices } from './invoiceSync'
 import { isSampleLoaded, stripSampleData } from './sampleData'
@@ -29,7 +30,7 @@ export function seedTechnician(): User {
     companyId: null,
     role: 'technician',
     email: PLATFORM.technicianEmail,
-    password: PLATFORM.technicianPassword,
+    password: hashPassword(PLATFORM.technicianPassword),
     name: PLATFORM.technicianName,
     createdAt: nowIso(),
   }

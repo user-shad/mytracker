@@ -84,3 +84,36 @@ export function markInvoicePaidSimulated(
 ): AppData {
   return markInvoicePaid(data, invoiceId, method)
 }
+
+export async function handleStripeWebhook(
+  rawBody: Buffer,
+  signature: string,
+): Promise<{ ok: boolean; error?: string }> {
+  const stripe = getStripe()
+  const secret = process.env.STRIPE_WEBHOOK_SECRET
+  if (!stripe || !secret) return { ok: false, error: 'not_configured' }
+
+  let event: Stripe.Event
+  try {
+    event = stripe.webhooks.constructEvent(rawBody, signature, secret)
+  } catch {
+    return { ok: false, error: 'invalid_signature' }
+  }
+
+  if (event.type === 'checkout.session.completed') {
+    const session = event.data.object as Stripe.Checkout.Session
+    if (session.payment_status !== 'paid') return { ok: true }
+
+    const invoiceId = session.metadata?.invoiceId
+    if (!invoiceId) return { ok: false, error: 'missing_invoice' }
+
+    const data = loadStore()
+    const invoice = data.invoices.find((item) => item.id === invoiceId)
+    if (!invoice || invoice.status === 'paid') return { ok: true }
+
+    const method = session.metadata?.method === 'apple_pay' ? 'apple_pay' : 'card'
+    saveStore(markInvoicePaid(data, invoiceId, method))
+  }
+
+  return { ok: true }
+}

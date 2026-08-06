@@ -22,6 +22,12 @@ export function CloudStatusCard() {
       <h3>{t(lang, 'cloudStatus')}</h3>
       <div className="cloud-status-grid">
         <div>
+          <span className="muted">{t(lang, 'cloudDatabase')}</span>
+          <Badge tone={cloudStatus?.databaseEnabled ? 'good' : 'warn'}>
+            {cloudStatus?.databaseEnabled ? t(lang, 'cloudPostgres') : t(lang, 'cloudJsonStore')}
+          </Badge>
+        </div>
+        <div>
           <span className="muted">{t(lang, 'cloudSync')}</span>
           <Badge tone={syncError ? 'bad' : 'good'}>
             {syncError ? t(lang, 'cloudSyncError') : t(lang, 'cloudConnected')}

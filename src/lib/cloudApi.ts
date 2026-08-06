@@ -4,9 +4,12 @@ import type { AppData, SimulatedEmail } from '../types'
 
 export interface ServerConfig {
   version: string
+  databaseEnabled: boolean
+  storeBackend: 'postgres' | 'json'
   emailEnabled: boolean
   gptEnabled: boolean
   stripeEnabled: boolean
+  stripeWebhookEnabled: boolean
 }
 
 async function apiFetch<T>(path: string, init?: RequestInit): Promise<T> {

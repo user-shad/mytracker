@@ -41,6 +41,7 @@ import {
   upsertInvoice,
 } from '../lib/paymentStore'
 import { monthlyRentAmount } from '../lib/invoices'
+import { hashPassword, verifyPassword } from '../lib/password'
 import { assistantReply } from '../lib/assistantReply'
 import {
   confirmCheckout,
@@ -384,7 +385,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         companyId: company.id,
         role: 'admin',
         email: reg.adminEmail,
-        password,
+        password: hashPassword(password),
         name: reg.adminName,
         phone: reg.phone,
         createdAt: nowIso(),
@@ -541,12 +542,14 @@ export function DataProvider({ children }: { children: ReactNode }) {
   const changePassword = useCallback(
     (userId: string, current: string, next: string) => {
       const user = data.users.find((u) => u.id === userId)
-      if (!user || user.password !== current) {
+      if (!user || !verifyPassword(current, user.password)) {
         return { ok: false, error: 'invalidLogin' }
       }
       persist({
         ...data,
-        users: data.users.map((u) => (u.id === userId ? { ...u, password: next } : u)),
+        users: data.users.map((u) =>
+          u.id === userId ? { ...u, password: hashPassword(next) } : u,
+        ),
       })
       return { ok: true }
     },
@@ -581,7 +584,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         companyId: apt.companyId,
         role: 'resident',
         email,
-        password,
+        password: hashPassword(password),
         name: input.leaseName.trim(),
         createdAt: nowIso(),
       }
@@ -709,7 +712,7 @@ export function DataProvider({ children }: { children: ReactNode }) {
         companyId,
         role: 'staff',
         email,
-        password,
+        password: hashPassword(password),
         name: input.name.trim(),
         phone: input.phone?.trim(),
         createdAt: nowIso(),
@@ -1334,10 +1337,10 @@ export function DataProvider({ children }: { children: ReactNode }) {
         const user = data.users.find(
           (u) =>
             u.email.toLowerCase() === email.toLowerCase() &&
-            u.password === password &&
             (role ? u.role === role : true),
         )
-        return user ?? null
+        if (!user || !verifyPassword(password, user.password)) return null
+        return user
       },
     }),
     [
